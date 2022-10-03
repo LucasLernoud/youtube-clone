@@ -1,6 +1,8 @@
-const express = require("express");
-const mongoose = require("mongoose");
-const dotenv = require("dotenv");
+import express from "express";
+import mongoose from "mongoose";
+import dotenv from "dotenv";
+import userRoutes from "./routes/users.js"
+
 
 const app = express();
 const port = 3000;
@@ -20,6 +22,8 @@ const connect = () => {
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
+
+app.use("/api/users", userRoutes)
 
 app.listen(port, () => {
   connect();
